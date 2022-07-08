@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-const Auth_GateWay = 'http://localhost:50323/auth/';
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-};
+import { AuthRequest } from '../models/auth-request.model';
+import { HttpClientHelper } from 'src/helpers/HttpClientHelper ';
 
 @Injectable({
   providedIn: 'root',
@@ -13,14 +10,22 @@ const httpOptions = {
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  authMasterMicroService(username: string, password: string): Observable<any> {
+  authMicroService(username: string, password: string): Observable<any> {
     return this.http.post(
-      Auth_GateWay + 'mastermicroservice',
+      HttpClientHelper.auth_GateWay,
       {
         username,
         password,
       },
-      httpOptions
+      HttpClientHelper.httpOptions
+    );
+  }
+
+  authService(authRequest: AuthRequest): Observable<any> {
+    return this.http.post(
+      HttpClientHelper.auth_GateWay,
+      authRequest,
+      HttpClientHelper.httpOptions
     );
   }
 }
