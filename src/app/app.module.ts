@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { FacilityTypeModule } from './facility-type/facility-type.module';
 import { FacilityModule } from './facility/facility.module';
 import { FacilitatorModule } from './facilitator/facilitator.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -20,6 +21,7 @@ import { FacilitatorModule } from './facilitator/facilitator.module';
     FacilityModule,
     FacilitatorModule,
     FacilityTypeModule,
+    DashboardModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
