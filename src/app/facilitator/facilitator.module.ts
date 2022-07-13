@@ -4,7 +4,6 @@ import { FacilitatorListComponent } from './facilitator-list/facilitator-list.co
 import { AddFacilitatorComponent } from './add-facilitator/add-facilitator.component';
 
 
-
 @NgModule({
   declarations: [
     FacilitatorListComponent,
